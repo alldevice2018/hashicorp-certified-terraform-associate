@@ -8,7 +8,7 @@ variable "aws_region" {
 variable "ec2_ami_id" {
   description = "AMI ID"
   type        = string
-  default     = "ami-0915bcb5fa77e4892" # Amazon2 Linux AMI ID
+  default     = "ami-06ca3ca175f37dd66" # Amazon2 Linux AMI ID
 }
 
 variable "ec2_instance_count" {
@@ -28,7 +28,7 @@ variable "ec2_instance_type" {
 
 variable "ec2_instance_tags" {
   description = "EC2 Instance Tags"
-  type = map(string)
+  type        = map(string)
   default = {
     "Name" = "ec2-web"
     "Tier" = "Web"
@@ -37,10 +37,10 @@ variable "ec2_instance_tags" {
 
 variable "ec2_instance_type_map" {
   description = "EC2 Instance Type"
-  type = map(string)
+  type        = map(string)
   default = {
-    "small-apps" = "t3.micro"
-    "medium-apps" = "t3.medium" 
-    "big-apps" = "t3.large"    
+    "small-apps"  = "t3.micro"
+    "medium-apps" = "t3.medium"
+    "big-apps"    = "t3.large"
   }
 }

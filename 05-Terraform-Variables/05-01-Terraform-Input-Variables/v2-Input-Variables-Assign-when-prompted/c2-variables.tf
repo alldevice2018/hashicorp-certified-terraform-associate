@@ -8,7 +8,7 @@ variable "aws_region" {
 variable "ec2_ami_id" {
   description = "AMI ID"
   type        = string
-  default     = "ami-0915bcb5fa77e4892" # Amazon2 Linux AMI ID
+  default     = "ami-06ca3ca175f37dd66" # Amazon2 Linux AMI ID
 }
 
 variable "ec2_instance_count" {
@@ -17,8 +17,16 @@ variable "ec2_instance_count" {
   default     = 1
 }
 
+variable "key_name" {
+  description = "key pair name"
+  type        = string
+  default     = "ec2key"
+}
+
 # Assign When Prompted using CLI
 variable "ec2_instance_type" {
   description = "EC2 Instance Type"
-  type = string
+  type        = string
+  #we dont define the default value to better understand the assign when prompted input variables
+  #so when we run terraform plan/apply, it's going ask (prompt us) for the value of ec2_instance_type
 }
