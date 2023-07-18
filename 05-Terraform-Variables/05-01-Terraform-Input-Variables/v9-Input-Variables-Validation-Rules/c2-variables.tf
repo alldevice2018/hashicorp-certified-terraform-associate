@@ -8,9 +8,9 @@ variable "aws_region" {
 variable "ec2_ami_id" {
   description = "AMI ID"
   type        = string
-  default     = "ami-0915bcb5fa77e4892" # Amazon2 Linux AMI ID
+  default     = "ami-06ca3ca175f37dd66" # Amazon2 Linux AMI ID
   validation {
-    condition = length(var.ec2_ami_id) > 4 && substr(var.ec2_ami_id, 0, 4) == "ami-"
+    condition     = length(var.ec2_ami_id) > 4 && substr(var.ec2_ami_id, 0, 4) == "ami-"
     error_message = "The ec2_ami_id value must be a valid AMI id, starting with \"ami-\"."
   }
 }
@@ -23,6 +23,6 @@ variable "ec2_instance_count" {
 
 variable "ec2_instance_type" {
   description = "EC2 Instance Type"
-  type = string
-  default = "t3.micro"
+  type        = string
+  default     = "t3.micro"
 }

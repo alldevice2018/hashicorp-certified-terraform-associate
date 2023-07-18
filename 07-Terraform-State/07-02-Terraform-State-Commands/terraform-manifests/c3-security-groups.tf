@@ -29,7 +29,7 @@ resource "aws_security_group" "vpc-web" {
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
   }
-/*
+  /*
   # Enable during Step-08
   ingress {
     description = "Allow Port 8080"
