@@ -1,25 +1,25 @@
 # Create EC2 Instance - Amazon2 Linux
 resource "aws_instance" "my-ec2-vm" {
-  ami           = data.aws_ami.amzlinux.id 
+  ami           = data.aws_ami.amzlinux.id
   instance_type = var.instance_type
-  key_name      = "terraform-key"
+  key_name      = "JENKINSHOST"
   #count = terraform.workspace == "default" ? 1 : 1    
-	user_data = file("apache-install.sh")  
+  user_data              = file("apache-install.sh")
   vpc_security_group_ids = [aws_security_group.vpc-ssh.id, aws_security_group.vpc-web.id]
   tags = {
     "Name" = "vm-${terraform.workspace}-0"
   }
-# PLAY WITH /tmp folder in EC2 Instance with File Provisioner
+  # PLAY WITH /tmp folder in EC2 Instance with File Provisioner
   # Connection Block for Provisioners to connect to EC2 Instance
   connection {
-    type = "ssh"
-    host = self.public_ip # Understand what is "self"
-    user = "ec2-user"
-    password = ""
-    private_key = file("private-key/terraform-key.pem")
-  }  
+    type        = "ssh"
+    host        = self.public_ip # Understand what is "self"
+    user        = "ec2-user"
+    password    = ""
+    private_key = file("private-key/JENKINSHOST.pem")
+  }
 
- # Copies the file-copy.html file to /tmp/file-copy.html
+  # Copies the file-copy.html file to /tmp/file-copy.html
   provisioner "file" {
     source      = "apps/file-copy.html"
     destination = "/tmp/file-copy.html"
@@ -44,7 +44,7 @@ resource "aws_instance" "my-ec2-vm" {
   }
 
 
-/*
+  /*
 # Enable this during Section 09-01 Step-05
  # Copies the file-copy.html file to /var/www/html/file-copy.html where ec2-user don't have permission to copy
  # This provisioner will fail but we don't want to taint the resource, we want to continue on_failure
@@ -53,7 +53,7 @@ resource "aws_instance" "my-ec2-vm" {
     destination = "/var/www/html/file-copy.html"
     #on_failure  = continue  # Enable this during Test-2
    }
-*/ 
+*/
 }
 
 
