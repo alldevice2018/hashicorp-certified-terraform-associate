@@ -1,6 +1,6 @@
 # Terraform Block
 terraform {
-  required_version = ">= 1.4" 
+  required_version = ">= 1.2"
   required_providers {
     aws = {
       source  = "hashicorp/aws"
@@ -9,20 +9,30 @@ terraform {
   }
   # Update backend information as Terraform Cloud
   backend "remote" {
-    organization = "hcta-demo1"
+    organization = "harsh-certified-terraf-associate_demo1"
 
     workspaces {
-      name = "sentinel-demo1"
+      name = "hcta-sentinel-demo1"
     }
-  }  
+  }
 
 }
 
 # Provider Block
 provider "aws" {
-  region  = var.aws_region
+  region = var.aws_region
 }
 /*
 Note-1:  AWS Credentials Profile (profile = "default") configured on your local desktop terminal  
 $HOME/.aws/credentials
 */
+
+/* terraform {
+  cloud {
+    organization = "harsh-certified-terraf-associate_demo1"
+
+    workspaces {
+      name = "hcta-sentinel-demo1"
+    }
+  }
+} */

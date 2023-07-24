@@ -37,10 +37,10 @@ resource "aws_s3_bucket_acl" "s3_bucket" {
   bucket = aws_s3_bucket.s3_bucket.id
   acl    = "public-read"
 }
-
+*/
 
 # TEMPLATE to Create an s3 bucket With private ACL (BLOCK PUBLIC ACCESS)
-resource "aws_s3_bucket" "s3_bucket_private" {
+/*resource "aws_s3_bucket" "s3_bucket_private" {
   bucket = "atto-s3-bucket2"
 }
 

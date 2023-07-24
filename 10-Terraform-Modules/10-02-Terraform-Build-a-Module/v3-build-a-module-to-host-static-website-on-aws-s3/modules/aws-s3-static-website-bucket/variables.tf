@@ -8,5 +8,6 @@ variable "bucket_name" {
 variable "tags" {
   description = "Tages to set on the bucket"
   type        = map(string)
-  default     = {}
+  default     = "atto-s3-demo10"
+  #default     = {}
 }

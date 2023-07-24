@@ -1,6 +1,6 @@
 # Terraform Block
 terraform {
-  required_version = ">= 1.4" 
+  required_version = ">= 1.2"
   required_providers {
     aws = {
       source  = "hashicorp/aws"
@@ -11,9 +11,9 @@ terraform {
 
 # Provider Block
 provider "aws" {
-  region  = var.aws_region
+  region = var.aws_region
 }
 /*
 Note-1:  AWS Credentials Profile (profile = "default") configured on your local desktop terminal  
-$HOME/.aws/credentials
+$HOME/.aws/credentials. In THIS CASE WE ARE GOING TO SET PROFILE INFORMATION DIRECTLY IN TERRAFORM CLOUD
 */
